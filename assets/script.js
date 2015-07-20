@@ -21,37 +21,62 @@ $(document).ready(function(){
         }
     });
 
-    /* Expand select options upon hoverin and contract on hoverout. */
-    var original;
+    var ismobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
+
+    /*  */
+    $(".sort-arrow").click(function(){
+        var window = $(this).siblings("div.select-window.sort").get(0);
+        if ($(this).hasClass("left")) {
+            $(this).data("original", window.firstChild.style.marginTop);
+            var child = $(window.firstChild);
+            $(window).css({"height": Math.min(407, child.height()),
+                           "overflow-y": "scroll",
+                           "border": "1px solid rgb(142, 6, 6)"});
+            $(this).removeClass("left");
+            $(this).addClass("down");
+            child.css("margin-top", "0px");
+        } else {
+            $(window).css({"height": "50px",
+                           "overflow-y": "hidden",
+                           "border": "1px solid white"});
+            $(window).animate({scrollTop: "0px"})
+            $(this).removeClass("down");
+            $(this).addClass("left");
+            $(window.firstChild).css("margin-top", $(this).data("original"));
+            $(this).data("clicked", false);
+        }
+    });
     $(".select-window.sort").hover(function(){
         var child = $(this.firstChild);
-        original = this.firstChild.style.marginTop;
+        $(this).data("original", this.firstChild.style.marginTop);
         $(this).css("height", Math.min(407, child.height()));
         child.css("margin-top", "0px");
     }, function(){
         $(this).css("height", "50px");
         $(this).animate({scrollTop: "0px"})
-        $(this.firstChild).css("margin-top", original);
+        $(this.firstChild).css("margin-top", $(this).data("original"));
     });
 
     /* Adds a wine to the cart from the VIEW page. */
     $(".view-add").click(function() {
-		var id = $(this).attr("id");
-        var name = $("div#view-title").text();
         var quantity = Number($(this).siblings("input#view-quantity").val());
-        $("#wine-added-name").text(name + " (" + quantity + ")");
-		$.ajax({
-			type:	"POST",
-			url:	"ajax/update-cart.php",
-            data:	"type=add&id=" + id + "&quantity=" + quantity,
-			success: function(msg) {
-                if (msg) {
-                    alert(msg);
-                } else {
-                    $("div#popover-content").slideDown().delay(2000).slideUp();
+        if (quantity > 0) {
+            var id = $(this).attr("id");
+            var name = $("div#view-title").text();
+            $("#wine-added-name").text(name + " (" + quantity + ")");
+            $.ajax({
+                type:	"POST",
+                url:	"ajax/update-cart.php",
+                data:	"type=add&id=" + id + "&quantity=" + quantity,
+                success: function(msg) {
+                    if (msg) {
+                        alert(msg);
+                    } else {
+                        $("div#popover-content").slideDown().delay(1000).slideUp();
+                    }
                 }
-			}
-		});
+            });
+        }
 	});
 
     /* Remove a wine bottle from the cart. */
@@ -205,16 +230,31 @@ $(document).ready(function(){
                     if (msg) {
                         alert(msg);
                     } else {
-                       $("div#cart-content").slideUp();
-                       $("form#order-form").slideUp(function() {
-                           $("div#dimmer").fadeIn(function(){
-                               $("div#thanks-wrapper").fadeIn();
-                           });
-                       });
+                        alert("success");
+//                        $("div#cart-content").slideUp();
+//                        $("form#order-form").slideUp(function() {
+//                            $("div#dimmer").fadeIn(function(){
+//                                $("div#thanks-wrapper").fadeIn();
+//                            });
+//                        });
                     };
+    //                $("#content").fadeOut(function() {
+    //                    $("#content").remove();
+    //                    $("#thanks-wrapper").show();
+    //                    $("#modal-container").fadeIn(function() {
+    //                        $("#thanks-container").slideDown();
+    //                    });
+    //                });
                 }
             });
-        };
+        }
+        
     });
 
+
+//    $(".nav-item").hover(function() {
+//        $("#nav-bottle").css("left", $(this).offset().left - 33);
+//    }, function() {
+//        $("#nav-bottle").css("left", $("#nav-search").offset().left + 250);
+//    });
 });
