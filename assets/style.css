@@ -1230,9 +1230,42 @@ button#continue-shopping {
 
     /* ALL WINES */
     #sort-bar {
-        display: none;
+        height: auto;
+    }
+    .sort-option-wrapper {
+        display: block;
+        position: relative;
+        padding-left: 10px;
+    }
+    .select-window.sort {
+        border: 1px solid white;
+    }
+    .select-window:hover {
+        box-shadow: none;
+    }
+    .sort-arrow {
+        display: inline-block;
+        position: absolute;
+        top: 15px;
+        right: 5px;
+        border-bottom: 1px solid #8e0606;
+        border-left: 1px solid #8e0606;
+        height: 20px;
+        width: 20px;
+        transition: 0.2s;
+    }
+    .left {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+    .down {
+        top: 10px;
+        right: 11px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
     }
     #num-wines {
+        padding-left: 10px;
         font-size: 30px;
     }
     #pages {
