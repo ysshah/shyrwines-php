@@ -461,6 +461,7 @@ div#search-query {
     transition: 0.2s;
     background-color: white;
     vertical-align: top;
+    font-size: 0;
 }
 .list-wine:hover {
     cursor: pointer;
@@ -468,27 +469,26 @@ div#search-query {
     -webkit-transform: scale(1.05, 1.05);
     z-index: 1;
 }
-.list-pic-container {
+.list-pic-container, .default-pic {
     display: inline-block;
-    width: 60px;
+    width: 14%;
     text-align: center;
     height: 90%;
-    margin: 7.5px;
+    margin-top: 7.5px;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 .list-pic {
     height: 100%;
     max-width: 100%;
-}
-.default-pic {
-    display: inline-block;
-    height: 90%;
-    margin: 7.5px 17px;
 }
 .list-info {
     display: inline-block;
     vertical-align: top;
     width: 80%;
     font-weight: 300;
+    font-size: 16px;
+    padding-right: 2%;
 }
 .list-name {
     vertical-align: top;
