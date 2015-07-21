@@ -442,7 +442,7 @@ div#search-query {
     background-color: #8e0606;
     color: white;
 }
-#page-dots {
+.page-dots {
     display: inline-block;
     margin-right: 5px;
     vertical-align: top;

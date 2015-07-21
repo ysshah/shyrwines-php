@@ -90,7 +90,7 @@ function createOptions($colname, $key, $col) {
             $count += 51;
         }
     }
-    $any = array_filter($_GET, function($k) use($key){
+    $any = array_filter(array_merge($_GET, array("p" => 1)), function($k) use($key){
         return $k != $key;
     }, ARRAY_FILTER_USE_KEY);
     echo "<div class='sort-option-wrapper'>";
@@ -115,16 +115,54 @@ function build_query($key, $value) {
 /* Create the list of page numbers, and give the page that we are on an id 
  * of "selected". */
 function createPages($page, $num_wines, $per_page) {
+    $num_pages = ceil($num_wines / $per_page);
     echo "<div id='pages'>";
-    for ($i = 1; $i <= ceil($num_wines / $per_page); $i++) {
-        if ($i == $page) {
-            echo "<a class='page-num' id='selected'>$i</a>";
-        } else {
-            echo "<a href='?"
+
+    if ($num_pages <= 3) {
+        for ($i = 1; $i < 4 && $i <= $num_pages; $i++) {
+            if ($i == $page) {
+                echo "<a class='page-num' id='selected'>$i</a>";
+            } else {
+                echo "<a class='page-num' href='?"
+                    .http_build_query(array_merge($_GET, array("p" => $i)))
+                    ."'>$i</a>";
+            }
+        }
+    } else {
+        if ($page < 3) {
+            $sp = 1;
+        } else if ($page == $num_pages) {
+            $sp = $num_pages - 2;
+        } else if ($page >= 3) {
+            $sp = $page - 1;
+        }
+        if ($page >= 3) {
+            echo "<a class='page-num' href='?"
+                .http_build_query(array_merge($_GET, array("p" => 1)))
+                ."'>1</a>";
+        }
+        if ($page > 3) {
+            echo "<div class='page-dots'>...</div>";
+        }
+        for ($i = $sp; $i <= ($sp + 2); $i++) {
+            if ($i == $page) {
+                echo "<a class='page-num' id='selected'>$i</a>";
+            } else {
+                echo "<a class='page-num' href='?"
                 .http_build_query(array_merge($_GET, array("p" => $i)))
-                ."' class='page-num'>$i</a>";
+                ."'>$i</a>";
+            }
+        }
+        if ($page < $num_pages - 2) {
+            echo "<div class='page-dots'>...</div>";
+        }
+        if ($page < $num_pages - 1) {
+            echo "<a class='page-num' href='?"
+                .http_build_query(array_merge($_GET, array("p" => $num_pages)))
+                ."'>$num_pages</a>";
         }
     }
+
     echo "</div>";
 }
 
