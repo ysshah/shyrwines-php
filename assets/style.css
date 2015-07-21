@@ -570,7 +570,7 @@ div#search-query {
 }
 #view-ratings {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .view-rating {
     position: relative;
@@ -597,7 +597,7 @@ div#search-query {
 #view-description {
     text-indent: 40px;
     vertical-align: top;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .view-subinfo {
     margin-bottom: 5px;
