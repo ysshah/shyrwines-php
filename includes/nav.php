@@ -19,6 +19,7 @@
                 </div>
             </a>
             <div class="nav-item"><a href="about">ABOUT</a></div>
+            <div class="nav-item"><a href="events">EVENTS</a></div>
             <div class="nav-item"><a href="contact-us">CONTACT US</a></div>
             <div class="nav-item">
                 <a href="cart">CART</a>
