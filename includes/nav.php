@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="//fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet" type="text/css" />
         <script src="//code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
         <link id="css" rel="stylesheet" type="text/css" href="assets/style.css" />
         <script src="assets/script.js" type="text/javascript"></script>
