@@ -417,7 +417,12 @@ div#search-query {
     display: inline;
     font-weight: 300;
 }
-#pages {
+#pages-bottom {
+    position: relative;
+    height: 50px;
+    margin-top: 10px;
+}
+.pages {
     position: absolute;
     top: 10px;
     right: 0px;
@@ -451,7 +456,7 @@ div#search-query {
 }
 .list-wine {
     position: relative;
-    width: 420px;
+    width: 33.2%;
     height: 150px;
     margin-right: -5px;
     margin-bottom: -1px;
@@ -985,6 +990,11 @@ button#continue-shopping {
 /* TABLET / SMALL SCREEN ADJUSTMENTS HERE */
 @media only screen and (max-device-width: 900px), only screen and (max-width: 900px) {
 
+    /* ALL WINES */
+    .list-wine {
+        width: 49.8%;
+    }
+
     /* VIEW */
     #view-content {
         width: 94%;
@@ -1234,7 +1244,7 @@ button#continue-shopping {
     #num-wines {
         font-size: 30px;
     }
-    #pages {
+    .pages {
         top: 5px;
     }
     #listed-wines {

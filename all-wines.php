@@ -116,14 +116,14 @@ function build_query($key, $value) {
  * of "selected". */
 function createPages($page, $num_wines, $per_page) {
     $num_pages = ceil($num_wines / $per_page);
-    echo "<div id='pages'>";
+    $html = "<div class='pages'>";
 
     if ($num_pages <= 3) {
         for ($i = 1; $i < 4 && $i <= $num_pages; $i++) {
             if ($i == $page) {
-                echo "<a class='page-num' id='selected'>$i</a>";
+                $html .= "<a class='page-num' id='selected'>$i</a>";
             } else {
-                echo "<a class='page-num' href='?"
+                $html .= "<a class='page-num' href='?"
                     .http_build_query(array_merge($_GET, array("p" => $i)))
                     ."'>$i</a>";
             }
@@ -137,33 +137,34 @@ function createPages($page, $num_wines, $per_page) {
             $sp = $page - 1;
         }
         if ($page >= 3) {
-            echo "<a class='page-num' href='?"
+            $html .= "<a class='page-num' href='?"
                 .http_build_query(array_merge($_GET, array("p" => 1)))
                 ."'>1</a>";
         }
         if ($page > 3) {
-            echo "<div class='page-dots'>...</div>";
+            $html .= "<div class='page-dots'>...</div>";
         }
         for ($i = $sp; $i <= ($sp + 2); $i++) {
             if ($i == $page) {
-                echo "<a class='page-num' id='selected'>$i</a>";
+                $html .= "<a class='page-num' id='selected'>$i</a>";
             } else {
-                echo "<a class='page-num' href='?"
+                $html .= "<a class='page-num' href='?"
                 .http_build_query(array_merge($_GET, array("p" => $i)))
                 ."'>$i</a>";
             }
         }
         if ($page < $num_pages - 2) {
-            echo "<div class='page-dots'>...</div>";
+            $html .= "<div class='page-dots'>...</div>";
         }
         if ($page < $num_pages - 1) {
-            echo "<a class='page-num' href='?"
+            $html .= "<a class='page-num' href='?"
                 .http_build_query(array_merge($_GET, array("p" => $num_pages)))
                 ."'>$num_pages</a>";
         }
     }
 
-    echo "</div>";
+    $html .= "</div>";
+    return $html;
 }
 
 ?>
@@ -216,7 +217,8 @@ function createPages($page, $num_wines, $per_page) {
             echo "<div id='search-info'>Results for \"<div id='search-query'>$searchQuery</div>\"</div>";
         }
         $page = isset($_GET["p"]) ? (int) mysql_real_escape_string($_GET["p"]) : 1;
-        createPages($page, $num_wines, $per_page);
+        $pages_html = createPages($page, $num_wines, $per_page);
+        echo $pages_html;
         echo "</div>";
 
         mysql_data_seek($result, ($page - 1) * $per_page);
@@ -253,7 +255,9 @@ function createPages($page, $num_wines, $per_page) {
                 <div class="list-price">$<?php echo $row["Price"]; ?></div>
             </div>
         </a>
-    <?php $count++; } } ?>
+    <?php $count++; }
+    echo "<div id='pages-bottom'>$pages_html</div>";
+    } ?>
 </div>
 
 </div>
