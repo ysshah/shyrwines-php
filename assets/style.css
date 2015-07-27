@@ -339,7 +339,6 @@ footer {
 #Italian img {
     width: 100%;
     height: auto;
-    margin-top: -50px;
 }
 .panel:hover div.panel-dimmer {
     background-color: rgba(0, 0, 0, 0.5);
