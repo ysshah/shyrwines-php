@@ -112,7 +112,7 @@ function build_query($key, $value) {
     return http_build_query(array_merge($_GET, array($key => $value, "p" => 1)));
 }
 
-/* Create the list of page numbers, and give the page that we are on an id 
+/* Create the list of page numbers, and give the page that we are on an id
  * of "selected". */
 function createPages($page, $num_wines, $per_page) {
     $num_pages = ceil($num_wines / $per_page);
@@ -224,35 +224,37 @@ function createPages($page, $num_wines, $per_page) {
         mysql_data_seek($result, ($page - 1) * $per_page);
 
         $count = 0;
-        while (($row = mysql_fetch_assoc($result)) && $count < 15) { ?>
-        <a href="view?id=<?php echo $row["ID"]; ?>" class="list-wine">
-            <?php if (file_exists("assets/images/wines/".$row["SKU"].".jpg")) { ?>
+        while (($wine = mysql_fetch_assoc($result)) && $count < 15) { ?>
+        <a href="view?id=<?php echo $wine["ID"]; ?>" class="list-wine">
+            <?php if (file_exists("assets/images/wines/".$wine["SKU"].".jpg")) { ?>
             <div class="list-pic-container">
-            <img class="list-pic" src="assets/images/wines/<?php echo $row["SKU"]; ?>.jpg" alt="Wine Bottle Picture" />
+            <img class="list-pic" src="assets/images/wines/<?php echo $wine["SKU"]; ?>.jpg" alt="Wine Bottle Picture" />
             </div>
             <?php } else { ?>
             <img class="default-pic" src="assets/images/bottle.svg" alt="Default Wine Bottle Picture" />
             <?php } ?>
 
             <div class="list-info">
-                <div class="list-name"><?php echo $row["Name"]; ?></div>
+                <div class="list-name"><?php echo $wine["Name"]; ?></div>
+                <?php if ($wine["Winery"]) { ?>
                 <div class="list-label">Winery</div>
-                <div class="list-winery"><?php echo $row["Winery"]; ?></div>
+                <div class="list-winery"><?php echo $wine["Winery"]; ?></div>
+                <?php } ?>
                 <div class="list-ratings">
                     <?php
                     foreach ($ratings as $rat) {
-                        if ($row[$rat] != "0") {
+                        if ($wine[$rat] != "0") {
                             if ($rat == "WandS") {
                                 echo "<div class='list-rater'>W&S</div>";
                             } else {
                                 echo "<div class='list-rater'>$rat</div>";
                             }
-                            echo "<div class='list-rating'>$row[$rat]</div>";
+                            echo "<div class='list-rating'>$wine[$rat]</div>";
                         }
                     }
                     ?>
                 </div>
-                <div class="list-price">$<?php echo $row["Price"]; ?></div>
+                <div class="list-price">$<?php echo $wine["Price"]; ?></div>
             </div>
         </a>
     <?php $count++; }

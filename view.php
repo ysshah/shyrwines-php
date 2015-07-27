@@ -58,17 +58,19 @@ if (!isset($_GET["id"])) {
                 <div class="view-info-title">Region</div>
                 <a class="view-info" id="view-region" href="all-wines?r=<?php echo $wine["Region"]; ?>"><?php echo $wine["Region"]; ?></a>
             </div>
-            <?php } ?>
-            <?php if ($wine["Appellation"]) { ?>
+            <?php }
+            if ($wine["Appellation"]) { ?>
             <div class="view-subinfo">
                 <div class="view-info-title">Appellation</div>
                 <a class="view-info" id="view-appellation" href="all-wines?a=<?php echo $wine["Appellation"]; ?>"><?php echo $wine["Appellation"]; ?></a>
             </div>
-            <?php } ?>
+            <?php }
+            if ($wine["Winery"]) { ?>
             <div class="view-subinfo">
                 <div class="view-info-title">Winery</div>
                 <div class="view-info" id="view-winery"><?php echo $wine["Winery"]; ?></div>
             </div>
+            <?php } ?>
             <div class="view-subinfo">
                 <div class="view-info-title">Varietal</div>
                 <a class="view-info" id="view-varietal" href="all-wines?v=<?php echo $wine["Varietal"]; ?>"><?php echo $wine["Varietal"]; ?></a>
