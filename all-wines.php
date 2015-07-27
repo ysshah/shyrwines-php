@@ -116,55 +116,59 @@ function build_query($key, $value) {
  * of "selected". */
 function createPages($page, $num_wines, $per_page) {
     $num_pages = ceil($num_wines / $per_page);
-    $html = "<div class='pages'>";
+    if ($num_pages > 1) {
+        $html = "<div class='pages'>";
 
-    if ($num_pages <= 3) {
-        for ($i = 1; $i < 4 && $i <= $num_pages; $i++) {
-            if ($i == $page) {
-                $html .= "<a class='page-num' id='selected'>$i</a>";
-            } else {
+        if ($num_pages <= 3) {
+            for ($i = 1; $i < 4 && $i <= $num_pages; $i++) {
+                if ($i == $page) {
+                    $html .= "<a class='page-num' id='selected'>$i</a>";
+                } else {
+                    $html .= "<a class='page-num' href='?"
+                        .http_build_query(array_merge($_GET, array("p" => $i)))
+                        ."'>$i</a>";
+                }
+            }
+        } else {
+            if ($page < 3) {
+                $sp = 1;
+            } else if ($page == $num_pages) {
+                $sp = $num_pages - 2;
+            } else if ($page >= 3) {
+                $sp = $page - 1;
+            }
+            if ($page >= 3) {
                 $html .= "<a class='page-num' href='?"
+                    .http_build_query(array_merge($_GET, array("p" => 1)))
+                    ."'>1</a>";
+            }
+            if ($page > 3) {
+                $html .= "<div class='page-dots'>...</div>";
+            }
+            for ($i = $sp; $i <= ($sp + 2); $i++) {
+                if ($i == $page) {
+                    $html .= "<a class='page-num' id='selected'>$i</a>";
+                } else {
+                    $html .= "<a class='page-num' href='?"
                     .http_build_query(array_merge($_GET, array("p" => $i)))
                     ."'>$i</a>";
+                }
             }
-        }
-    } else {
-        if ($page < 3) {
-            $sp = 1;
-        } else if ($page == $num_pages) {
-            $sp = $num_pages - 2;
-        } else if ($page >= 3) {
-            $sp = $page - 1;
-        }
-        if ($page >= 3) {
-            $html .= "<a class='page-num' href='?"
-                .http_build_query(array_merge($_GET, array("p" => 1)))
-                ."'>1</a>";
-        }
-        if ($page > 3) {
-            $html .= "<div class='page-dots'>...</div>";
-        }
-        for ($i = $sp; $i <= ($sp + 2); $i++) {
-            if ($i == $page) {
-                $html .= "<a class='page-num' id='selected'>$i</a>";
-            } else {
+            if ($page < $num_pages - 2) {
+                $html .= "<div class='page-dots'>...</div>";
+            }
+            if ($page < $num_pages - 1) {
                 $html .= "<a class='page-num' href='?"
-                .http_build_query(array_merge($_GET, array("p" => $i)))
-                ."'>$i</a>";
+                    .http_build_query(array_merge($_GET, array("p" => $num_pages)))
+                    ."'>$num_pages</a>";
             }
         }
-        if ($page < $num_pages - 2) {
-            $html .= "<div class='page-dots'>...</div>";
-        }
-        if ($page < $num_pages - 1) {
-            $html .= "<a class='page-num' href='?"
-                .http_build_query(array_merge($_GET, array("p" => $num_pages)))
-                ."'>$num_pages</a>";
-        }
-    }
 
-    $html .= "</div>";
-    return $html;
+        $html .= "</div>";
+        return $html;
+    } else {
+        return "";
+    }
 }
 
 ?>
