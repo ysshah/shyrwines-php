@@ -1172,6 +1172,9 @@ button#continue-shopping {
     .sort-arrow {
         right: 5px;
     }
+    .down {
+        right: 9px;
+    }
     #num-wines {
         padding-left: 10px;
         font-size: 30px;

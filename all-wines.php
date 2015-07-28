@@ -191,10 +191,20 @@ function createPages($page, $num_wines, $per_page) {
         $sort_ops_str = array("aa" => "Alphabetical: A to Z", "ad" => "Alphabetical: Z to A",
                               "va" => "Vintage: Old to New", "vd" => "Vintage: New to Old",
                               "pa" => "Price: Low to High", "pd" => "Price: High to Low");
-        foreach ($sort_ops_str as $s_abv => $s_str) {
-            if ($s_abv == $s) {
-                echo "<div class='option selected'>$s_str</div>";
-            } else {
+
+        /* If a sort option ($s) is defined, generate the options as such.
+         * Otherwise, default is A to Z. */
+        if ($s) {
+            foreach ($sort_ops_str as $s_abv => $s_str) {
+                if ($s_abv == $s) {
+                    echo "<div class='option selected'>$s_str</div>";
+                } else {
+                    echo '<a href="?'.build_query("s", $s_abv).'" class="option">'.$s_str.'</a>';
+                }
+            }
+        } else {
+            echo "<div class='option selected'>Alphabetical: A to Z</div>";
+            foreach (array_slice($sort_ops_str, 1) as $s_abv => $s_str) {
                 echo '<a href="?'.build_query("s", $s_abv).'" class="option">'.$s_str.'</a>';
             }
         }
