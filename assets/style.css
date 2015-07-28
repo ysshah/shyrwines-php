@@ -65,7 +65,6 @@ div#dimmer {
 button {
     background-color: white;
     font: inherit;
-/*    font-weight: 300;*/
     border: 1px solid #8e0606;
     outline: none;
     transition: 0.2s;
@@ -81,10 +80,6 @@ button:hover {
     background-color: white;
     z-index: 2;
     transition: 0.3s;
-}
-.select-window:hover {
-    overflow-y: scroll;
-    box-shadow: 0px 0px 5px #8e0606;
 }
 .select {
     transition: 0.3s;
@@ -307,7 +302,6 @@ footer {
     font-size: 30px;
     font-weight: 300;
     margin-bottom: 10px;
-/*    padding: 0% 2.25%;*/
 }
 .header:not(:first-child) {
     margin-top: 30px;
@@ -326,7 +320,6 @@ footer {
 }
 .panel:not(:last-child) {
     margin-right: 2%;
-/*    margin-right: 2vw;*/
 }
 .panel img {
     height: 100%;
@@ -370,29 +363,18 @@ div.panel-dimmer {
 /* ALL WINES */
 .sort-option-wrapper {
     margin-bottom: 5px;
+    position: relative;
 }
 #sort-bar {
     position: relative;
-/*    height: 50px;*/
     line-height: 50px;
     font-size: 18px;
     float: left;
-    width: 300px;
+    width: 350px;
 }
-/*
-#sort-bar:after {
-    content: "";
-    width: 100%;
-    height: 1px;
-    background-color: #8e0606;
-    position: absolute;
-    bottom: -10px;
-    left: 0px;
-}
-*/
 .sort-option-title {
     display: inline-block;
-
+    padding-right: 10px;
 }
 .select-window.sort {
     line-height: 50px;
@@ -401,6 +383,27 @@ div.panel-dimmer {
     font-weight: 300;
     vertical-align: top;
     z-index: 2;
+}
+.sort-arrow {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    right: 8px;
+    border-bottom: 1px solid #8e0606;
+    border-left: 1px solid #8e0606;
+    height: 20px;
+    width: 20px;
+    transition: 0.2s;
+}
+.left {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.down {
+    top: 10px;
+    right: 11px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
 }
 #info-bar {
     position: relative;
@@ -460,7 +463,9 @@ div#search-query {
 }
 #listed-wines {
     margin-top: 20px;
-    margin-left: 300px;
+    margin-left: 350px;
+    padding-left: 20px;
+    border-left: 1px solid #8e0606;
 }
 .list-wine {
     position: relative;
@@ -994,9 +999,10 @@ button#continue-shopping {
     margin-top: 10px;
 }
 
-/* LARGE SCREEN ADJUSTMENTS HERE */
-@media only screen and (max-device-width: 1100px), only screen and (max-width: 1100px) {
+/* LESS THAN 1150px */
+@media only screen and (max-device-width: 1150px), only screen and (max-width: 1150px) {
 
+    /* ALL WINES */
     .list-wine {
         width: 49.8%;
     }
@@ -1004,52 +1010,12 @@ button#continue-shopping {
 }
 
 
-/* TABLET / SMALL SCREEN ADJUSTMENTS HERE */
+/* LESS THAN 900px */
 @media only screen and (max-device-width: 900px), only screen and (max-width: 900px) {
 
     /* ALL WINES */
-    #sort-bar {
-        float: none;
+    .list-wine {
         width: 100%;
-    }
-    #listed-wines {
-        margin-left: 0;
-    }
-    .sort-option-wrapper {
-        display: block;
-        position: relative;
-        padding-left: 10px;
-    }
-    .select-window.sort {
-        border: 1px solid white;
-    }
-    .select-window:hover {
-        box-shadow: none;
-    }
-    .sort-arrow {
-        display: inline-block;
-        position: absolute;
-        top: 15px;
-        right: 5px;
-        border-bottom: 1px solid #8e0606;
-        border-left: 1px solid #8e0606;
-        height: 20px;
-        width: 20px;
-        transition: 0.2s;
-    }
-    .left {
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-    }
-    .down {
-        top: 10px;
-        right: 11px;
-        transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
-    }
-    #num-wines {
-        padding-left: 10px;
-        font-size: 30px;
     }
 
     /* VIEW */
@@ -1174,9 +1140,58 @@ button#continue-shopping {
 
 }
 
+/* LESS THAN 750px */
+@media only screen and (max-device-width: 750px), only screen and (max-width: 750px) {
+    #content {
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-/* MOBILE ADJUSTMENTS HERE */
-@media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px){
+    /* ALL WINES */
+    #sort-bar {
+        float: none;
+        width: 100%;
+    }
+    #sort-bar:after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: #8e0606;
+        position: absolute;
+        bottom: -10px;
+        left: 0px;
+    }
+    .sort-option-wrapper {
+        display: block;
+        position: relative;
+        padding-left: 10px;
+    }
+    .select-window.sort {
+        border: 1px solid white;
+    }
+    .sort-arrow {
+        right: 5px;
+    }
+    #num-wines {
+        padding-left: 10px;
+        font-size: 30px;
+    }
+    .pages {
+        top: 5px;
+    }
+    #listed-wines {
+        margin-left: 0;
+        padding: 0 10px;
+        border-left: none;
+    }
+    .list-wine {
+        width: 49.8%;
+    }
+}
+
+
+/* LESS THAN 480px */
+@media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
 
     /* Turn off iPhone default appearances */
     input[type=text] {
@@ -1268,10 +1283,12 @@ button#continue-shopping {
     }
 
     /* ALL WINES */
-    .pages {
-        top: 5px;
+    #sort-bar {
+        font-size: 16px;
     }
     #listed-wines {
+        padding-left: 0;
+        padding-right: 0;
         padding-bottom: 20px;
     }
     .list-wine {
