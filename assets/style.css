@@ -999,6 +999,21 @@ button#continue-shopping {
     margin-top: 10px;
 }
 
+
+/* LESS THAN 1280px */
+@media only screen and (max-device-width: 1280px), only screen and (max-width: 1280px) {
+
+    /* INDEX */
+    .panel {
+        width: 22.3vw;
+        height: 22.3vw;
+    }
+    .panel-text {
+        font-size: 2vw;
+    }
+
+}
+
 /* LESS THAN 1150px */
 @media only screen and (max-device-width: 1150px), only screen and (max-width: 1150px) {
 
