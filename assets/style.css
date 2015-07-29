@@ -42,6 +42,7 @@ a {
 div#dimmer {
     display: none;
     position: absolute;
+    top: 0;
     z-index: 5;
     width: 100%;
     height: 100%;
@@ -1053,6 +1054,25 @@ button#continue-shopping {
         margin: 10px auto;
         display: block;
         text-align: center;
+    }
+    #popover-content {
+        position: fixed;
+        margin-left: -160px;
+        z-index: 6;
+        top: 50%;
+        margin-top: -50px;
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.9);
+    }
+    #popover-arrow {
+        display: none;
+    }
+    #popover-box {
+        height: 80px;
+        border: none;
+    }
+    #wine-added {
+        display: table;
+        height: 100%;
     }
 
     /* CART */

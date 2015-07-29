@@ -4,7 +4,7 @@
     <head>
         <link href="//fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet" type="text/css" />
         <script src="//code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
-        <link id="css" rel="stylesheet" type="text/css" href="assets/style.css" />
+        <link rel="stylesheet" type="text/css" href="assets/style.css" />
         <script src="assets/script.js" type="text/javascript"></script>
         <link rel="icon" href="assets/images/logo-bottle.png" />
         <meta name="viewport" content="width=device-width" />
@@ -23,17 +23,17 @@
             <div class="nav-item">
                 <a href="cart">CART</a>
                 <div id="popover-content">
-					<div id="popover-arrow"></div>
-					<div id="popover-box">
-						<div id="wine-added">
-							<img id="wine-added-pic" src="assets/images/bottle.svg">
-							<div id="center">
-								<div id="wine-added-name"></div>
-								<div id="added-to-cart">added to cart</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                    <div id="popover-arrow"></div>
+                    <div id="popover-box">
+                        <div id="wine-added">
+                            <img id="wine-added-pic" src="assets/images/bottle.svg">
+                            <div id="center">
+                                <div id="wine-added-name"></div>
+                                <div id="added-to-cart">added to cart</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <form method="get" action="all-wines">
                 <input autocomplete="off" name="q" id="nav-search" type="text" value='<?php if (isset($_GET["q"])) { echo $_GET["q"]; } ?>' placeholder="Search by wine name, keyword..." />

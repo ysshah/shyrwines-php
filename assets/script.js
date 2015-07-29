@@ -80,7 +80,15 @@ $(document).ready(function () {
                     if (msg) {
                         alert(msg);
                     } else {
-                        $("div#popover-content").slideDown().delay(1000).slideUp();
+                        if ($(window).width() <= 900) {
+                            $("div#dimmer").fadeIn(function () {
+                                $("div#popover-content").fadeIn().delay(1000).fadeOut(function () {
+                                    $("div#dimmer").fadeOut();
+                                });
+                            });
+                        } else {
+                            $("div#popover-content").slideDown().delay(1000).slideUp();
+                        }
                     }
                 }
             });
