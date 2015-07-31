@@ -107,7 +107,7 @@ button:hover {
 /* NAVIGATION BAR */
 nav {
     position: relative;
-    height: 100px;
+    height: 105px;
     margin: 0px auto;
     max-width: 1260px;
     padding: 20px 10px;
@@ -130,7 +130,6 @@ nav {
 #nav-logo, .nav-item, form {
     display: inline-block;
     vertical-align: top;
-    top: 50%;
 }
 .nav-item, form {
     margin-left: 3%;
@@ -145,10 +144,10 @@ nav {
 .nav-item {
     position: relative;
     text-align: center;
-    width: 11.25%;
+    width: 16%;
     font-weight: 300;
     font-size: 18px;
-    margin-top: -10.5px;
+    margin-top: 20px;
 }
 #popover-content {
     display: none;
@@ -195,7 +194,7 @@ form {
     position: relative;
     display: inline-block;
     width: 26%;
-    margin-top: -16.5px;
+    margin-top: 14px;
 }
 #nav-search {
     width: 96%;
@@ -266,6 +265,49 @@ form {
     text-decoration: underline;
     font-weight: 400;
 }
+#social-container {
+    margin-top: -30px;
+    margin-right: -8px;
+}
+.nav-social {
+    position: relative;
+    float: right;
+    padding-left: 40px;
+    text-align: center;
+}
+.title {
+    display: block;
+}
+.widget, span.IN-widget {
+    opacity: 0;
+    transition: 0.2s;
+}
+#nav-linkedin {
+    width: 82px;
+    padding-left: 33px;
+}
+.nav-social .title {
+    font-size: 16px;
+    font-weight: 300;
+}
+.nav-social:hover .title {
+    text-decoration: underline;
+}
+.nav-social:hover .widget, #nav-linkedin:hover span.IN-widget {
+    opacity: 1;
+}
+#nav-facebook:hover .title {
+    color: #3b5998;
+}
+#nav-twitter:hover .title {
+    color: #55acee;
+}
+#nav-instagram:hover .title {
+    color: #675144;
+}
+#nav-linkedin:hover .title {
+    color: #0077b5;
+}
 
 /* FOOTER */
 footer {
@@ -285,15 +327,6 @@ footer {
 }
 .footer-dot {
     display: inline-block;
-}
-#facebook-link:hover {
-    color: #3b5998;
-}
-#instagram-link:hover{
-    color: #675144;
-}
-#twitter-link:hover {
-    color: #1dcaff;
 }
 
 /* INDEX */

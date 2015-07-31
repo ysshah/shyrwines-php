@@ -19,7 +19,6 @@
                 </div>
             </a>
             <div class="nav-item"><a href="about">ABOUT</a></div>
-            <div class="nav-item"><a href="events">EVENTS</a></div>
             <div class="nav-item"><a href="contact-us">CONTACT US</a></div>
             <div class="nav-item">
                 <a href="cart">CART</a>
@@ -42,6 +41,24 @@
                 <div id="mag-handle"></div>
                 <div id="auto-container"></div>
             </form>
+            <div id="social-container">
+                <div id="nav-linkedin" class="nav-social">
+                    <a class="title" href="https://www.linkedin.com/company/shyr-wines" target="_blank">LINKEDIN</a>
+                    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+                    <script type="IN/FollowCompany" data-id="3648850"></script>
+                </div>
+                <div id="nav-instagram" class="nav-social">
+                    <a class="title" target="_blank" href="https://instagram.com/shyrwines">INSTAGRAM</a>
+                </div>
+                <div id="nav-twitter" class="nav-social">
+                    <a class="title" href="https://twitter.com/shyrwines" target="_blank">TWITTER</a>
+                    <a href="https://twitter.com/ShyrWines" class="twitter-follow-button widget" data-show-count="false" data-show-screen-name="false">Follow @ShyrWines</a>
+                </div>
+                <div id="nav-facebook" class="nav-social">
+                    <a class="title" href="https://www.facebook.com/shyrwines" target="_blank">FACEBOOK</a>
+                    <div class="fb-like widget" data-href="https://www.facebook.com/shyrwines" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
+                </div>
+            </div>
         </nav>
         <div id="nav-border"></div>
         <div id="dimmer"></div>
