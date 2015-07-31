@@ -950,7 +950,7 @@ button#submit-order {
 }
 #thanks {
     font-weight: 100;
-    font-size: 30px;
+    font-size: 28px;
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -1225,6 +1225,14 @@ button#continue-shopping {
     .list-wine {
         width: 49.8%;
     }
+
+    /* CART */
+    #thanks-wrapper {
+        width: 90%;
+        left: 5%;
+        margin-left: 0;
+    }
+
 }
 
 
