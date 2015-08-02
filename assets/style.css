@@ -1315,7 +1315,7 @@ button#continue-shopping {
     }
     form {
         display: block;
-        margin: 10px auto 0px auto;
+        margin: 45px auto 0px auto;
         width: 100%;
     }
     #auto-container {
@@ -1323,9 +1323,10 @@ button#continue-shopping {
         top: 32px;
     }
     #social-container {
-        width: 100%;
-        position: static;
-        margin-top: 0;
+        width: 90%;
+        padding: 0 5%;
+        right: 0;
+        bottom: 65px;
     }
     .widget, span.IN-widget {
         display: none !important;

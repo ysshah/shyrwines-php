@@ -35,6 +35,12 @@
                     </div>
                 </div>
             </div>
+            <form method="get" action="all-wines">
+                <input autocomplete="off" name="q" id="nav-search" type="text" value='<?php if (isset($_GET["q"])) { echo $_GET["q"]; } ?>' placeholder="Search by wine name, keyword..." />
+                <div id="mag-circle"></div>
+                <div id="mag-handle"></div>
+                <div id="auto-container"></div>
+            </form>
             <div id="social-container">
                <div id="nav-facebook" class="nav-social">
                     <a class="title" href="https://www.facebook.com/shyrwines" target="_blank">FACEBOOK</a>
@@ -53,12 +59,6 @@
                     <script type="IN/FollowCompany" data-id="3648850"></script>
                 </div>
             </div>
-            <form method="get" action="all-wines">
-                <input autocomplete="off" name="q" id="nav-search" type="text" value='<?php if (isset($_GET["q"])) { echo $_GET["q"]; } ?>' placeholder="Search by wine name, keyword..." />
-                <div id="mag-circle"></div>
-                <div id="mag-handle"></div>
-                <div id="auto-container"></div>
-            </form>
         </nav>
         <div id="nav-border"></div>
         <div id="dimmer"></div>
