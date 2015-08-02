@@ -35,30 +35,30 @@
                     </div>
                 </div>
             </div>
+            <div id="social-container">
+               <div id="nav-facebook" class="nav-social">
+                    <a class="title" href="https://www.facebook.com/shyrwines" target="_blank">FACEBOOK</a>
+                    <div class="fb-like widget" data-href="https://www.facebook.com/shyrwines" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
+                </div>
+                <div id="nav-twitter" class="nav-social">
+                    <a class="title" href="https://twitter.com/shyrwines" target="_blank">TWITTER</a>
+                    <a href="https://twitter.com/ShyrWines" class="twitter-follow-button widget" data-show-count="false" data-show-screen-name="false">Follow @ShyrWines</a>
+                </div>
+                <div id="nav-instagram" class="nav-social">
+                    <a class="title" target="_blank" href="https://instagram.com/shyrwines">INSTAGRAM</a>
+                </div>
+                <div id="nav-linkedin" class="nav-social">
+                    <a class="title" href="https://www.linkedin.com/company/shyr-wines" target="_blank">LINKEDIN</a>
+                    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+                    <script type="IN/FollowCompany" data-id="3648850"></script>
+                </div>
+            </div>
             <form method="get" action="all-wines">
                 <input autocomplete="off" name="q" id="nav-search" type="text" value='<?php if (isset($_GET["q"])) { echo $_GET["q"]; } ?>' placeholder="Search by wine name, keyword..." />
                 <div id="mag-circle"></div>
                 <div id="mag-handle"></div>
                 <div id="auto-container"></div>
             </form>
-            <div id="social-container">
-                <div id="nav-linkedin" class="nav-social">
-                    <a class="title" href="https://www.linkedin.com/company/shyr-wines" target="_blank">LINKEDIN</a>
-                    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
-                    <script type="IN/FollowCompany" data-id="3648850"></script>
-                </div>
-                <div id="nav-instagram" class="nav-social">
-                    <a class="title" target="_blank" href="https://instagram.com/shyrwines">INSTAGRAM</a>
-                </div>
-                <div id="nav-twitter" class="nav-social">
-                    <a class="title" href="https://twitter.com/shyrwines" target="_blank">TWITTER</a>
-                    <a href="https://twitter.com/ShyrWines" class="twitter-follow-button widget" data-show-count="false" data-show-screen-name="false">Follow @ShyrWines</a>
-                </div>
-                <div id="nav-facebook" class="nav-social">
-                    <a class="title" href="https://www.facebook.com/shyrwines" target="_blank">FACEBOOK</a>
-                    <div class="fb-like widget" data-href="https://www.facebook.com/shyrwines" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
-                </div>
-            </div>
         </nav>
         <div id="nav-border"></div>
         <div id="dimmer"></div>
