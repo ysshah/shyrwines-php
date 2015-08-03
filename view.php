@@ -82,7 +82,10 @@ if (!isset($_GET["id"])) {
         </div>
         <div id="view-purchase-wrapper">
             <div id="view-price">$<?php echo $wine["Price"]; ?></div>
-            <div id="add-container">
+            <?php if ($wine["Count"] == 0) {
+                echo "<div id='view-outofstock'><div>Sold Out</div></div>";
+            } ?>
+            <div id='add-container'>
                 <div id="view-quantity-label">Quantity:</div>
                 <input pattern="\d*" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id='view-quantity' value='1' type="text"></input>
                 <button id="<?php echo $id; ?>" class="view-add">Add to Cart</button>

@@ -524,6 +524,24 @@ div#search-query {
     -webkit-transform: scale(1.05, 1.05);
     z-index: 1;
 }
+#all-outofstock {
+    position: absolute;
+    width: 100px;
+    top: 50%;
+    margin-top: -12px;
+    left: 50%;
+    margin-left: -50px;
+    text-align: center;
+    font-size: 24px;
+    color: red;
+    transform: rotate(-21deg);
+}
+#all-outofstock + .list-pic-container {
+    opacity: 0.2;
+}
+#all-outofstock ~ .list-info {
+    opacity: 0.2;
+}
 .list-pic-container, .default-pic {
     display: inline-block;
     width: 14%;
@@ -676,6 +694,7 @@ a.view-info:hover {
 #view-purchase-wrapper {
     width: 150px;
     text-align: right;
+    position: relative;
 }
 div#add-container {
     font-size: 0px;
@@ -684,6 +703,29 @@ div#add-container {
     font-size: 32px;
     font-weight: 300;
     color: #068e06;
+}
+#view-outofstock {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+#view-outofstock div {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    width: 100px;
+    bottom: 33px;
+    font-size: 22px;
+    text-align: center;
+    transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    color: red;
+    font-weight: 400;
+}
+#view-outofstock + #add-container {
+    opacity: 0.2;
 }
 #view-quantity-label {
     font-size: 20px;

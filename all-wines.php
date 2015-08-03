@@ -240,9 +240,14 @@ function createPages($page, $num_wines, $per_page) {
         $count = 0;
         while (($wine = mysql_fetch_assoc($result)) && $count < 15) { ?>
         <a href="view?id=<?php echo $wine["ID"]; ?>" class="list-wine">
+            <?php
+            if ($wine["Count"] == 0) {
+                echo "<div id='all-outofstock'>Sold Out</div>";
+            }
+            ?>
             <?php if (file_exists("assets/images/wines/".$wine["SKU"].".jpg")) { ?>
             <div class="list-pic-container">
-            <img class="list-pic" src="assets/images/wines/<?php echo $wine["SKU"]; ?>.jpg" alt="Wine Bottle Picture" />
+                <img class="list-pic" src="assets/images/wines/<?php echo $wine["SKU"]; ?>.jpg" alt="Wine Bottle Picture" />
             </div>
             <?php } else { ?>
             <img class="default-pic" src="assets/images/bottle.svg" alt="Default Wine Bottle Picture" />
