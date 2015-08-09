@@ -351,7 +351,6 @@ footer {
 .panel {
     position: relative;
     display: inline-block;
-    transition: 0.2s;
     width: 23%;
     height: 277.2px;
     overflow: hidden;
@@ -1119,8 +1118,7 @@ button#continue-shopping {
         padding: 0px 3% 100px 3%;
     }
     #view-title {
-        padding-left: 10px;
-        padding-right: 10px;
+        font-size: 38px;
     }
     #view-info-wrapper {
         width: 100%;

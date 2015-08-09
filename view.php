@@ -13,15 +13,15 @@ if (!isset($_GET["id"])) {
     include_once("includes/nav.php");
     ?>
 
-    <div id="view-title"><?php echo $wine["Name"]; ?></div>
-
     <div id="view-content">
+        <div id="view-title"><?php echo $page_title; ?></div>
         <div id="view-pic-wrapper">
         <?php
-        if (file_exists("assets/images/wines/".$wine["SKU"].".jpg")) {
-            echo "<img id='view-pic' src='assets/images/wines/".$wine["SKU"].".jpg' alt='Wine Bottle Picture'>";
+        $picFile = "assets/images/wines/".$wine["SKU"].".jpg";
+        if (file_exists($picFile)) {
+            echo "<img id='view-pic' src='$picFile' alt='$page_title'>";
         } else {
-            echo "<img id='view-default-pic' src='assets/images/bottle.svg' alt='Default Wine Bottle Picture'>";
+            echo "<img id='view-default-pic' src='assets/images/bottle.svg' alt='$page_title'>";
         }
         ?>
         </div>
