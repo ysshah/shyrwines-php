@@ -22,7 +22,7 @@ if (isset($_GET["q"])) {
 }
 
 /* Generate conditions for MySQL query from column options and search query. */
-$conds = "";
+$conds = " WHERE";
 foreach ($columns as $col_name => $col_val) {
     if ($col_val) {
         $conds .= " $col_name = '$col_val' AND";
@@ -33,7 +33,7 @@ if ($search) {
     $conds .= " Name LIKE '%$search%' ESCAPE '|' AND";
 }
 /* Remove the last " AND" from the conditions. */
-$conds = !$conds ?: substr($conds, 0, -4);
+$conds = ($conds == " WHERE") ? "" : substr($conds, 0, -4);
 
 /* Append sorting options to end of MySQL query. _GET["s"] is in the form of
  * (v|p|a)(a|d) where the first letter describes what to sort by, and the
@@ -64,17 +64,18 @@ switch ($s[1]) {
 
 function createOptions($colname, $key, $col) {
     global $columns, $conds;
-    $query = "SELECT DISTINCT($colname) FROM WineTable WHERE";
+    $query = "SELECT DISTINCT($colname) FROM WineTable";
     if (!$col) {
         $query .= $conds;
     } else {
-        $new_conds = "";
+        $new_conds = " WHERE";
         foreach ($columns as $col_name => $col_val) {
             if ($col_name != $colname && $col_val) {
                 $new_conds .= " $col_name = '$col_val' AND";
             }
         }
-        $query = $new_conds ? $query.substr($new_conds, 0, -4) : substr($query, 0, -6);
+        $query = ($new_conds == " WHERE") ?
+            $query : $query.substr($new_conds, 0, -4);
     }
     $result = mysql_query("$query ORDER BY $colname");
     $options = "";
@@ -216,7 +217,7 @@ function createPages($page, $num_wines, $per_page) {
 
 <div id="listed-wines">
     <?php
-    $query = "SELECT * FROM WineTable WHERE $conds $sort";
+    $query = "SELECT * FROM WineTable $conds $sort";
     $per_page = 15;
 
     $result = mysql_query($query);
