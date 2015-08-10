@@ -41,7 +41,7 @@ $conds = ($conds == " WHERE") ? "" : substr($conds, 0, -4);
 $s = isset($_GET["s"]) ? mysql_real_escape_string($_GET["s"]) : NULL;
 switch ($s[0]) {
     case 'v':
-        $sort = " ORDER BY Year ";
+        $sort = " ORDER BY Vintage ";
         break;
     case 'p':
         $sort = " ORDER BY Price ";
