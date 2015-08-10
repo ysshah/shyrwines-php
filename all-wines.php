@@ -48,7 +48,7 @@ switch ($s[0]) {
         break;
     case 'a':
     default:
-        $sort = " ORDER BY IF(Year = 2100, Name, SUBSTR(Name, 6)) ";
+        $sort = " ORDER BY IF(Vintage = 2100, Name, SUBSTR(Name, 6)) ";
         break;
 }
 switch ($s[1]) {
