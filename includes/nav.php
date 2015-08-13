@@ -9,6 +9,7 @@
         <link rel="icon" href="assets/images/logo-bottle.png" />
         <meta name="viewport" content="width=device-width" />
         <meta name="google" value="notranslate" />
+        <link rel="search" type="application/opensearchdescription+xml" title="Shyr Wines" href="/opensearch.xml" />
         <title><?php echo isset($page_title) ? "$page_title | Shyr Wines" : "Shyr Wines"; ?></title>
     </head>
     <body>
