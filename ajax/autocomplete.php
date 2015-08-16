@@ -7,6 +7,7 @@ if (isset($_POST["q"])) {
         array("|", "%", "_"), array("||", "|%", "|_"), $query));
 
     $name_results = mysql_query("SELECT * FROM WineTable WHERE Name LIKE '%$q%' ESCAPE '|'");
+    $query = preg_quote($query);
     while ($wine = mysql_fetch_assoc($name_results)) {
         echo "<a href='view?id=".$wine["ID"]."' class='auto-item'><div class='center'>".preg_replace("/$query/i", "<div class='match'>\$0</div>", $wine["Name"])."</div></a>";
     }
