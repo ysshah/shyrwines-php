@@ -4,7 +4,7 @@ include_once(dirname(__DIR__)."/includes/db.php");
 if (isset($_POST["q"])) {
     $query = $_POST["q"];
     $q = mysql_real_escape_string(str_replace(
-        array("|", "%", "_", "*"), array("||", "|%", "|_", "|*"), $query));
+        array("|", "%", "_"), array("||", "|%", "|_"), $query));
 
     $name_results = mysql_query("SELECT * FROM WineTable WHERE Name LIKE '%$q%' ESCAPE '|'");
     while ($wine = mysql_fetch_assoc($name_results)) {
