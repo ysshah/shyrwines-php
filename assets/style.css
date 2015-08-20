@@ -282,7 +282,7 @@ form {
 .title {
     display: block;
 }
-.widget, span.IN-widget {
+.widget, span.IN-widget, #nav-twitter iframe {
     opacity: 0;
     transition: 0.2s;
 }
@@ -297,7 +297,9 @@ form {
 .nav-social:hover .title {
     text-decoration: underline;
 }
-.nav-social:hover .widget, #nav-linkedin:hover span.IN-widget {
+.nav-social:hover .widget,
+#nav-linkedin:hover span.IN-widget,
+#nav-twitter:hover iframe {
     opacity: 1;
 }
 #nav-facebook:hover .title {
