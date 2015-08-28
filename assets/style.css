@@ -1372,7 +1372,7 @@ button#continue-shopping {
         right: 0;
         bottom: 65px;
     }
-    .widget, span.IN-widget {
+    .widget, span.IN-widget, #nav-twitter iframe {
         display: none !important;
     }
     .nav-social .title {
