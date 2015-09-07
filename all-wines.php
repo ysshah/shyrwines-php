@@ -225,9 +225,7 @@ function createPages($page, $num_wines, $per_page) {
     if ($num_wines == 0) {
         echo "<div id='info-bar'><div id='num-wines'>No wines found!</div></div>";
     } else {
-        $wine_label = $num_wines == 1 ? "wine" : "wines";
         echo "<div id='info-bar'>";
-        echo "<div id='num-wines'>$num_wines $wine_label</div>";
         if (isset($searchQuery)) {
             echo "<div id='search-info'>Results for \"<div id='search-query'>$searchQuery</div>\"</div>";
         }
