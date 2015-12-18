@@ -173,15 +173,16 @@ nav {
     width: 300px;
     padding: 10px;
 }
+#wine-added {
+    display: flex;
+}
 #wine-added-pic {
-    height: 45px;
-    float: left;
+    align-self: center;
     margin-left: 10px;
-    margin-top: 8px;
+    width: 12px;
 }
 #center {
-    display: table-cell;
-    vertical-align: middle;
+    align-self: center;
     width: 270px;
     padding-left: 10px;
 }
