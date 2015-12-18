@@ -551,10 +551,11 @@ div#search-query {
     margin-top: 7.5px;
     margin-left: 2%;
     margin-right: 2%;
+    overflow: hidden;
 }
 .list-pic {
     height: 100%;
-    max-width: 100%;
+    margin: 0 -100% 0 -100%;
 }
 .list-info {
     display: inline-block;
