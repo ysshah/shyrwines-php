@@ -32,6 +32,25 @@ foreach ($columns as $col_name => $col_val) {
 if ($search) {
     $conds .= " Name LIKE '%$search%' ESCAPE '|' AND";
 }
+/* Pricing conditions */
+$pr = isset($_GET["pr"]) ? mysql_real_escape_string($_GET["pr"]) : NULL;
+switch ($pr) {
+    case 'p1':
+        $conds .= " Price < '20.00' AND";
+        break;
+    case 'p2':
+        $conds .= " '20.00' <= Price and Price < '50.00' AND";
+        break;
+    case 'p3':
+        $conds .= " '50.00' <= Price and Price < '100.00' AND";
+        break;
+    case 'p4':
+        $conds .= " '100.00' <= Price AND";
+        break;
+    default:
+        break;
+}
+
 /* Remove the last " AND" from the conditions. */
 $conds = ($conds == " WHERE") ? "" : substr($conds, 0, -4);
 
@@ -181,6 +200,40 @@ function createPages($page, $num_wines, $per_page) {
     <?php createOptions("Varietal", "v", $varietal); ?>
     <?php createOptions("Region", "r", $region); ?>
     <?php createOptions("Appellation", "a", $appellation); ?>
+    <div class="sort-option-wrapper">
+        <div class="sort-option-title">Price:</div>
+        <?php
+        /* Array to determine the margin-top offset depending on the option. */
+        $sort_ops = array("p1" => 1, "p2" => 2, "p3" => 3, "p4" => 4);
+
+        echo "<div class='select-window sort'><div class='select' style='margin-top:-"
+            .(isset($_GET["pr"]) ? $sort_ops[$_GET["pr"]] * 51 : "0px")."px'>";
+        $sort_ops_str = array("p1" => "Less than $20", "p2" => "$20 - $50",
+                              "p3" => "$50 - $100", "p4" => "More than $100");
+
+        /* If a price option ($pr) is defined, generate the options as such.
+         * Otherwise, default is A to Z. */
+        $any = array_filter(array_merge($_GET, array("p" => 1)), function($k) {
+            return $k != "pr";
+        }, ARRAY_FILTER_USE_KEY);
+        echo '<a href="?'.http_build_query($any).'" class="option">Any</a>';
+        if ($pr) {
+            foreach ($sort_ops_str as $s_abv => $s_str) {
+                if ($s_abv == $pr) {
+                    echo "<div class='option selected'>$s_str</div>";
+                } else {
+                    echo '<a href="?'.build_query("pr", $s_abv).'" class="option">'.$s_str.'</a>';
+                }
+            }
+        } else {
+            foreach ($sort_ops_str as $s_abv => $s_str) {
+                echo '<a href="?'.build_query("pr", $s_abv).'" class="option">'.$s_str.'</a>';
+            }
+        }
+        echo "</div></div>";
+        ?>
+        <div class="sort-arrow left"></div>
+    </div>
     <div class="sort-option-wrapper">
         <div class="sort-option-title">Sort By:</div>
         <?php
