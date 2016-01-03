@@ -1,5 +1,5 @@
         <footer>
-            <div class="footer-item">&copy; Shyr Wines, 2015</div>
+            <div class="footer-item">&copy; 2014 - <?php echo date("Y"); ?> Shyr Wines</div>
             <div class="footer-dot first">&middot;</div>
             <a class="footer-item" href="terms-of-service">TERMS OF SERVICE</a>
             <div class="footer-dot">&middot;</div>
