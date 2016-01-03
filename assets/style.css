@@ -487,6 +487,8 @@ div#search-query {
     text-align: center;
     border: 1px solid #8e0606;
     transition: 0.2s;
+}
+.page-num:not(:last-child) {
     margin-right: 5px;
 }
 .page-num:not(#selected) {
