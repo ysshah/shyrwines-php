@@ -1429,6 +1429,9 @@ button#continue-shopping {
     #sort-bar {
         font-size: 16px;
     }
+    .page-num:last-child {
+        margin-right: 5px;
+    }
     #listed-wines {
         padding-left: 0;
         padding-right: 0;
