@@ -266,19 +266,14 @@ form {
     text-decoration: underline;
     font-weight: 400;
 }
-#social-container {
-    width: 430px;
-    position: absolute;
-    right: 2px;
-    margin-top: -30px;
-    display: -webkit-flex;
-    -webkit-justify-content: space-between;
-    display: flex;
-    justify-content: space-between;
-}
-.nav-social {
+#nav-facebook {
     position: relative;
+    float: right;
+    bottom: 35px;
     text-align: center;
+}
+#nav-facebook .title {
+    font-size: 18px;
 }
 .title {
     display: block;
@@ -1363,18 +1358,17 @@ button#continue-shopping {
     }
     form {
         display: block;
-        margin: 45px auto 0px auto;
+        margin: 45px auto -20px auto;
         width: 100%;
     }
     #auto-container {
         left: 0px;
         top: 32px;
     }
-    #social-container {
-        width: 90%;
-        padding: 0 5%;
-        right: 0;
-        bottom: 65px;
+    #nav-facebook {
+        float: none;
+        width: 100%;
+        bottom: 47px;
     }
     .widget, span.IN-widget, #nav-twitter iframe {
         display: none !important;
