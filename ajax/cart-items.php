@@ -28,17 +28,18 @@ if (isset($_SESSION["cart"]) && count($_SESSION["cart"]) > 0) {
     }
 
     $taxValue = round($subTotal * $tax, 2);
-    if ($total_num_items > 11) {
-        $discount = round($subTotal * 0.1, 2);
-        $total = round($subTotal * (1 + $tax) - $discount, 2);
-    } else {
-        $total = round($subTotal * (1 + $tax), 2);
-    }
+    $total = round($subTotal * (1 + $tax), 2);
+//    if ($total_num_items > 11) {
+//        $discount = round($subTotal * 0.1, 2);
+//        $total = round($subTotal * (1 + $tax) - $discount, 2);
+//    } else {
+//        $total = round($subTotal * (1 + $tax), 2);
+//    }
 
     echo sprintf("<div class='cart-totals-row'><div class='cart-totals-titles'>Subtotal</div><div class='cart-equals'>=</div><div id='subtotal' class='cart-totals'>$%s</div></div>", number_format($subTotal, 2, ".", ","));
-    if ($total_num_items > 11) {
-        echo sprintf("<div class='cart-totals-row'><div class='cart-totals-titles'>Case Discount (-10%%)</div><div class='cart-equals'>=</div><div id='discount' class='cart-totals'>- $%s</div></div>", number_format($discount, 2, ".", ","));
-    }
+//    if ($total_num_items > 11) {
+//        echo sprintf("<div class='cart-totals-row'><div class='cart-totals-titles'>Case Discount (-10%%)</div><div class='cart-equals'>=</div><div id='discount' class='cart-totals'>- $%s</div></div>", number_format($discount, 2, ".", ","));
+//    }
     echo sprintf("<div class='cart-totals-row'><div class='cart-totals-titles'>Estimated Tax</div><div class='cart-equals'>=</div><div id='tax' class='cart-totals'>$%s</div></div>", number_format($taxValue, 2, ".", ","));
     echo sprintf("<div class='cart-totals-row' style='font-size:20px'><div class='cart-totals-titles'>Total</div><div class='cart-equals'>=</div><div id='total' class='cart-totals'>$%s</div></div>", number_format($total, 2, ".", ","));
 
