@@ -314,7 +314,7 @@ function createPages($page, $num_wines, $per_page) {
                 <div class="list-ratings">
                     <?php
                     foreach ($ratings as $rat) {
-                        if ($wine[$rat] != "0") {
+                        if (!is_null($wine[$rat])) {
                             if ($rat == "WandS") {
                                 echo "<div class='list-rater'>W&S</div>";
                             } else {
