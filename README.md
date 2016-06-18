@@ -5,10 +5,7 @@ This repository is for me to finally have a version control system for the Shyr 
 ### Instructions
 1. Modify webpage, make sure it works
 2. Git commit and push
-3. Upload modified files to iPage using
-```
-duck -y -e compare --upload ftp://shyrwines@ftp.ipage.com/<folder> <file>
-```
+3. Upload modified files to iPage using `git ftp push`
 
 ### Files
 
