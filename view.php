@@ -36,7 +36,7 @@ if (!isset($_GET["id"])) {
                 "WandS" => "Wine and Spirits", "WA" => "Wine Advocate",
                 "WE" => "Wine Enthusiast", "WS" => "Wine Spectator");
             foreach ($ratings as $rater_abbv => $rater) {
-                if ($wine[$rater_abbv] != "0") {
+                if (!is_null($wine[$rater_abbv])) {
                     echo "<div class='view-rating'>$wine[$rater_abbv] points</div>";
                     echo "<div class='view-rater'>$rater</div><br>";
                 }
