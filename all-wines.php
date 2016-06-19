@@ -67,7 +67,7 @@ switch ($s[0]) {
         break;
     case 'a':
     default:
-        $sort = " ORDER BY IF(Vintage = null, Name, SUBSTR(Name, 6)) ";
+        $sort = " ORDER BY IF(Vintage IS NULL, Name, SUBSTR(Name, 6)) ";
         break;
 }
 switch ($s[1]) {
