@@ -15,9 +15,7 @@
     <body>
         <nav>
             <a id="nav-logo" href="/">
-<!--                <div id="nav-img-wrapper">-->
-                    <img src="assets/images/logo.svg" alt="Shyr Wines Logo" />
-<!--                </div>-->
+                <img src="assets/images/logo.svg" alt="Shyr Wines Logo" />
             </a>
             <div class="nav-item"><a href="about">ABOUT</a></div>
             <div class="nav-item"><a href="contact-us">CONTACT US</a></div>
