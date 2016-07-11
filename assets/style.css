@@ -584,7 +584,11 @@ div#search-query {
   padding: 0 10px 100px 10px;
   font-size: 0; }
 
-#view-pic-wrapper, #view-info-wrapper, #view-purchase-wrapper {
+#left-col {
+  width: 150px;
+  margin-right: 10px; }
+
+#left-col, #view-info-wrapper, #view-purchase-wrapper {
   vertical-align: top;
   display: inline-block; }
 
@@ -640,6 +644,22 @@ div#search-query {
   text-indent: 40px;
   vertical-align: top;
   margin-bottom: 15px; }
+
+div#factsheet {
+  position: relative;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 40px; }
+  div#factsheet a {
+    position: absolute;
+    left: 25px; }
+    div#factsheet a:hover {
+      text-decoration: underline; }
+  div#factsheet img {
+    width: 16px;
+    position: absolute;
+    right: 30px;
+    top: 2px; }
 
 .view-subinfo {
   margin-bottom: 5px; }
@@ -1047,7 +1067,7 @@ button#continue-shopping {
     font-size: 38px; }
   #view-info-wrapper {
     width: 100%; }
-  #view-pic-wrapper {
+  #left-col {
     display: block;
     margin: 0px auto 20px auto; }
   #view-purchase-wrapper {

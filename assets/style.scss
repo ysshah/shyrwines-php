@@ -613,7 +613,11 @@ div#search-query {
     padding: 0 10px 100px 10px;
     font-size: 0;
 }
-#view-pic-wrapper, #view-info-wrapper, #view-purchase-wrapper {
+#left-col {
+    width: 150px;
+    margin-right: 10px;
+}
+#left-col, #view-info-wrapper, #view-purchase-wrapper {
     vertical-align: top;
     display: inline-block;
 }
@@ -657,11 +661,11 @@ div#search-query {
     content: "";
     height: 25px;
     width: 1px;
-    background-color: rgb(142, 6, 6);
+    background-color: $primary-color;
 }
 .view-rater {
     display: inline-block;
-    color: rgb(142, 6, 6);
+    color: $primary-color;
     margin-right: 5px;
     font-size: 20px;
 }
@@ -669,6 +673,25 @@ div#search-query {
     text-indent: 40px;
     vertical-align: top;
     margin-bottom: 15px;
+}
+div#factsheet {
+    position: relative;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    a {
+        position: absolute;
+        left: 25px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    img {
+        width: 16px;
+        position: absolute;
+        right: 30px;
+        top: 2px;
+    }
 }
 .view-subinfo {
     margin-bottom: 5px;
@@ -1117,7 +1140,7 @@ button#continue-shopping {
     #view-info-wrapper {
         width: 100%;
     }
-    #view-pic-wrapper {
+    #left-col {
         display: block;
         margin: 0px auto 20px auto;
     }

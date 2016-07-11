@@ -15,17 +15,26 @@ if (!isset($_GET["id"])) {
 
     <div id="view-content">
         <div id="view-title"><?php echo $page_title; ?></div>
-        <div id="view-pic-wrapper">
-        <?php
-        $picFile = "assets/images/wines/".$wine["SKU"].".jpg";
-        if (file_exists($picFile)) {
-            echo "<img id='view-pic' src='$picFile' alt='$page_title'>";
-        } else {
-            echo "<img id='view-default-pic' src='assets/images/bottle.svg' alt='$page_title'>";
-        }
-        ?>
+        <div id="left-col">
+            <div id="view-pic-wrapper">
+            <?php
+            $picFile = "assets/images/wines/".$wine["SKU"].".jpg";
+            if (file_exists($picFile)) {
+                echo "<img id='view-pic' src='$picFile' alt='$page_title'>";
+            } else {
+                echo "<img id='view-default-pic' src='assets/images/bottle.svg' alt='$page_title'>";
+            }
+            ?>
+            </div>
+            <?php
+            $factSheetFile = "assets/factsheets/".$wine["SKU"].".pdf";
+            if (file_exists($factSheetFile)) { ?>
+            <div id="factsheet">
+                <a target='_blank' href='<?php echo $factSheetFile; ?>'>Fact Sheet</a>
+                <img src='assets/images/open.svg'>
+            </div>
+            <?php } ?>
         </div>
-
         <div id="view-info-wrapper">
             <div id="view-ratings">
             <?php
@@ -47,7 +56,6 @@ if (!isset($_GET["id"])) {
                 <div id="view-description-title" class="view-info-title">Winemaker's Notes</div>
                 <div class="view-info" id="view-description"><?php echo $wine["Description"]; ?></div>
             <?php } ?>
-
 
             <div class="view-subinfo">
                 <div class="view-info-title">Country</div>
