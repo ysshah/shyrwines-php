@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width" />
         <meta name="google" value="notranslate" />
         <link rel="search" type="application/opensearchdescription+xml" title="Shyr Wines" href="/opensearch.xml" />
+        <meta name="google-site-verification" content="HNUubO2s2NhukmIDIZmNIprxQcz8jmNu6GvqgYiYygs" />
         <title><?php echo isset($page_title) ? "$page_title | Shyr Wines" : "Shyr Wines"; ?></title>
     </head>
     <body>
